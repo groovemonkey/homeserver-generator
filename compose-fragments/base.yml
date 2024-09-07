@@ -1,0 +1,42 @@
+# version: '3'
+
+# Define common environment variables
+x-env: &default-env
+  MEDIA_PATH: ./data/media
+  CONFIG_PATH: ./data/config
+  TZ: America/New_York
+  GLUETUN_VPN_SERVICE_PROVIDER: 'mullvad'
+  GLUETUN_VPN_TYPE: 'wireguard'
+  ## TODO remove?
+  PUID: 1000
+  PGID: 1000
+
+# Define common configurations
+x-common: &default-config
+  restart: unless-stopped
+  environment:
+    <<: *default-env
+  # volumes:
+  #   - ${CONFIG_PATH:-*default-env.CONFIG_PATH}:/config
+
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${CONFIG_PATH:-*default-env.CONFIG_PATH}
+  media:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${MEDIA_PATH:-*default-env.MEDIA_PATH}
+
+# Define any additional networks if required
+networks:
+  default:
+    name: mynetwork
+
+# After this, service fragments are interpolated
+services:

@@ -1,0 +1,7 @@
+  nextcloud:
+    image: nextcloud
+    <<: *default-config
+    volumes:
+      - ./data/config/nextcloud:/var/www/html
+    ports:
+      - "8080:80"

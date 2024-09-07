@@ -1,0 +1,10 @@
+  gluetun:
+    image: qmcgaw/gluetun
+    <<: *default-config
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=${GLUETUN_VPN_SERVICE_PROVIDER:-mullvad}
+      - VPN_TYPE=${GLUETUN_VPN_TYPE:-wireguard}
+    volumes:
+      - ./data/config/gluetun:/gluetun

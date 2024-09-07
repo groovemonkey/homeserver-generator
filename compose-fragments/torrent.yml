@@ -1,0 +1,6 @@
+  torrent:
+    image: linuxserver/qbittorrent
+    <<: *default-config
+    network_mode: service:gluetun
+    volumes:
+      - ./data/downloads/qbittorrent:/downloads

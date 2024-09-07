@@ -1,0 +1,6 @@
+  sabnzbd:
+    image: linuxserver/sabnzbd
+    <<: *default-config
+    network_mode: service:gluetun
+    volumes:
+      - ./data/downloads/sabnzbd:/downloads

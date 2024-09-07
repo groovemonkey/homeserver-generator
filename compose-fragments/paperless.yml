@@ -1,0 +1,11 @@
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    <<: *default-config
+    volumes:
+      - ./data/config/paperless:/usr/src/paperless/data
+      - ./data/paperless/media:/usr/src/paperless/media
+      - ./data/paperless/documents:/usr/src/paperless/consume
+    ports:
+      - "8000:8000"
+    environment:
+      - PAPERLESS_URL=http://localhost:8000

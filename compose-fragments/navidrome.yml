@@ -1,0 +1,8 @@
+  navidrome:
+    image: deluan/navidrome
+    <<: *default-config
+    volumes:
+      - ./data/config/navidrome:/data
+      - ./data/media/music:/music:ro
+    ports:
+      - "4533:4533"

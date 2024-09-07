@@ -1,0 +1,7 @@
+  homeassistant:
+    image: homeassistant/home-assistant
+    <<: *default-config
+    volumes:
+      - ./data/config/homeassistant:/config
+    ports:
+      - "8123:8123"

@@ -1,0 +1,7 @@
+  bitwarden:
+    image: vaultwarden/server
+    <<: *default-config
+    volumes:
+      - ./data/config/bitwarden:/data
+    ports:
+      - "8081:80"

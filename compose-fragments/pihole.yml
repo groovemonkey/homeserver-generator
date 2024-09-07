@@ -1,0 +1,12 @@
+  pihole:
+    image: pihole/pihole:latest
+    <<: *default-config
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      - WEBPASSWORD=${PIHOLE_PASSWORD:-changeme}
+    volumes:
+      - ./data/config/pihole:/etc/pihole
+      - ./data/config/dnsmasq.d:/etc/dnsmasq.d

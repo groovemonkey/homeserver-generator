@@ -1,0 +1,8 @@
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf
+    <<: *default-config
+    volumes:
+      - ./data/config/audiobookshelf:/config
+      - ./data/media/audiobooks:/audiobooks
+    ports:
+      - "13378:80"

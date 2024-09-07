@@ -1,0 +1,22 @@
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    <<: *default-config
+    volumes:
+      - ./data/media:/media
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    <<: *default-config
+    volumes:
+      - ./data/media:/media
+  lidarr:
+    image: lscr.io/linuxserver/lidarr
+    <<: *default-config
+    volumes:
+      - ./data/media:/media
+
+  # readarr:
+  #   image: lscr.io/linuxserver/readarr:develop
+  #   image: linuxserver/readarr
+  #   <<: *default-config
+  #   volumes:
+  #     - media:/media
